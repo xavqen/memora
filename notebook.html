@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>✦ Memora · Smart Notebook</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>✦ Memora · Pro Notebook</title>
   <!-- Fonts & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,17 +11,21 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <!-- Quill Editor -->
   <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-  <!-- localForage (IndexedDB wrapper) -->
+  <!-- localForage -->
   <script src="https://cdn.jsdelivr.net/npm/localforage@1.10.0/dist/localforage.min.js"></script>
-  <link rel="stylesheet" href="style.css">
-
+<link rel="stylesheet" href="style.css">
 </head>
 <body class="light">
 
+<button class="menu-toggle" id="menuToggle" aria-label="Menu">
+  <i class="fas fa-bars"></i>
+</button>
+<div class="overlay" id="sidebarOverlay"></div>
+
 <!-- SIDEBAR -->
-<div class="sidebar">
+<div class="sidebar" id="sidebar">
   <div class="app-header">
-    <h2><i class="fas fa-book-open" style="margin-right: 8px;"></i>Memora</h2>
+    <h2><i class="fas fa-book-open"></i> Memora</h2>
     <button class="darkmode-toggle" id="darkmodeToggle" aria-label="Dark mode">
       <i class="fas fa-moon"></i>
     </button>
@@ -46,7 +50,6 @@
 
   <div class="notes-list" id="notesListContainer"></div>
 
-  <!-- Storage & Tools -->
   <div class="storage-panel">
     <div class="storage-info">
       <span><i class="fas fa-database"></i> Storage</span>
@@ -76,17 +79,16 @@
     </div>
   </div>
 
-  <!-- Quill Editor Container -->
-  <div id="quillEditor" style="height: auto;"></div>
+  <div id="quillEditor" style="flex:1; display:flex; flex-direction:column;"></div>
   
   <div class="editor-footer">
     <div>
       <span class="word-count" id="wordCountDisplay">0 words · 0 chars</span>
-      <span id="saveStatus" class="status-saved" style="margin-left: 12px;"><i class="fas fa-check-circle"></i> Saved</span>
+      <span id="saveStatus" class="status-saved" style="margin-left: 14px;"><i class="fas fa-check-circle"></i> Saved</span>
     </div>
     <button class="mic-btn" id="voiceDictationBtn"><i class="fas fa-microphone"></i> Dictate</button>
   </div>
-  <div style="margin-top: 10px; font-size:0.8rem; opacity:0.6;">
+  <div style="margin-top: 12px; font-size:0.8rem; opacity:0.65;">
     <i class="far fa-clock"></i> Last edit: <span id="lastModifiedSpan">—</span>
   </div>
 </div>
