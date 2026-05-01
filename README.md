@@ -1,1 +1,1 @@
-# memora - notepad
+# memora - ai - notepad
